@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HangMan V3.0</title>
+    <link rel="stylesheet" href="">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+<!--    <script src="./assets/javascript/game.js"> </script>-->
+    
+    <style>
+        
+       
+    </style>
+</head>
+
+<body>
+   <div>             
+    <header id="headerCon">
+        <div class="cont">
+           <h1 id="gameName">Welcome to HANGMAN </h1>
+        </div>
+    </header>
+     
+    
+      
+      
+<div id="mainCon" class="cont">  
+       <div>
+             <div id="buttonDiv">
+                 <div class="wins" class="counterButtons">WINS</div>
+                 
+                 <div class="losses" class="counterButtons">LOSSES</div>
+             </div>
+<br>
+             <div id="buttonDiv">
+                 <div id="winsText" class="counterButtons">0</div>
+                 
+                 <div id="lossesText" class="counterButtons">0</div>
+             </div>
+             
+             <div class="mainSection">
+                 <div>
+                 <div id="blankButton"></div>
+                 </div>
+              
+       </div>
+               
+        <button  id="startButton" onclick="clickToStart()">CLICK FOR NEW WORD</button>
+        <div id="guesses">GUESSES LEFT: <span id="gButton"></span></div>
+    
+
+</div>
+  
+     
+    <script type="text/javascript">
+    
+        
+        
+        //create an array for words to guess and one to store guesses? keep track of score.
+        
+        var wordArray = ["CHIVE", "MARIO", "FANCY", "WEB", "VAIN", "PLOT", "FALSE", "DOG"];
+        
+        var rightAnswer = [];
+        var allKeysPushed = [];
+        var tries = 7;
+        var blank = [];
+        var wins = 0;
+        var losses = 0;
+        var playerGuess = [];
+        var playWord;
+        
+        
+        
+        //string.join?    try this to remove all the ,,, in blank and playerGuess    
+        
+        
+        //function to do:
+        //randomly choose a word from array  --- math.floor math.random
+        //define length of word in array, create string store to guess?
+        //figure out how to display number of letters for player to guess --- this must be displayed on screen --- for loop?
+        //find out to how to make a click to start/play?  right now you must click a key button to populate the play word --- function/function?
+        
+function clickToStart () {
+            //alert("let's go!");
+            
+            if (wins > 3) {
+                    document.write("Thanks for being such a winner!     REFRESH TO PLAY AGAIN");
+            }
+        
+                    if (losses > 3) {
+                            document.write("It's not that hard.... But, you failed.    REFRESH TO PLAY AGAIN");  
+                    }
+            
+                        else {
+                               startGame(); 
+                        }
+            
+           
+            
+}
+        
+function startGame () { 
+            playWord = wordArray[Math.floor(Math.random() * wordArray.length)];
+            console.log("play word = " + playWord);
+            
+        
+            for (var i = 0; i < playWord.length; i++) {
+                    blank.push("_");
+            }
+            
+            
+            document.getElementById("blankButton").textContent = blank.join(" ");
+        
+            
+              
+document.onkeyup = function (event) {
+                    
+//                if (playerGuess.indexOf(event.key) === 0) {
+//                    allKeysPushed = event.key;
+            //.getElementById("allText").textContent = allKeysPushed.join(", ");
+
+
+
+            if (playerGuess.indexOf(event.key) === -1)   {    
+
+
+            playerGuess = event.key.toUpperCase();
+
+                    
+                                                                    //from bands... if no match, will return (-1), then continue through "playWord" starting at first letter [0]  huh?
+                    if (playWord.indexOf(playerGuess) > -1) {
+                            for (var i = 0; i < playWord.length; i++) {
+                                    if (playWord[i] === playerGuess) {
+                                        blank[i] = playerGuess;
+                                        rightAnswer.push(playerGuess.toString());
+                                        
+                                        console.log("pushed to right answer " + rightAnswer);
+                                    }
+                            }
+//                                        allKeysPushed.push(playerGuess.toString());
+                                        console.log(blank);
+                                        document.getElementById("blankButton").textContent = blank.join(" ");
+//                                        document.getElementById("guessedText").textContent = rightAnswer.join(", ");
+                                        
+                    }
+                    
+                                    else {
+                                        
+                                        tries--;
+                                        console.log("tries = ", tries);
+                                        console.log("player guessed " + playerGuess);
+                                    }
+
+                    document.getElementById("gButton").textContent = tries;
+                    
+                    
+                    if (tries === 0) {
+
+                        alert("TRY AGAIN! ");
+                        blank.length = 0;
+                        tries = 7;
+                        losses++;
+
+                        console.log("losses = " + losses);
+                        document.getElementById("lossesText").textContent = losses;
+
+
+
+                    }
+
+                    if (rightAnswer.length === playWord.length)
+                    {
+                        alert("Great Job!")
+                        blank.length = 0;
+                        tries = 7;
+                        rightAnswer.length = 0;
+                        wins++;
+                        console.log("wins = " + wins);
+                        document.getElementById("winsText").textContent = wins;
+
+                    }
+                }
+
+                else {
+                   // already used letter
+                    alert("you've already choosen that letter")
+                }
+
+  }
+
+}
+//        }
+
+           
+            
+            
+        //get guess from player
+        //check to see if player guess is correct  -- keep score to record number of guesses
+        //if guess is right, display letter on screen   --- push to array?
+        //if guess is wrong, remove number of tries available    ---  push to array?
+    
+    
+    
+    
+    
+
+            
+            
+    </script>
+</body>
+</html>

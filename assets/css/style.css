@@ -1,0 +1,126 @@
+ body{
+            font-family: 'Press Start 2P', cursive;
+            color: #452a2a;
+            background-color: #cbaeae;
+        }
+        
+        #gameName{
+            
+        }
+        
+        #winsText{
+            font-size: 35px;
+            float:left;
+            color: orangered;
+            margin-left: 30px;
+        }
+        
+        #lossesText{
+            font-size:35px;
+            float:right;
+            color:orangered;
+            margin-right: 30px;
+            
+        }
+        
+        .wins{
+            float:left;
+            
+        }
+        
+        
+        .losses{
+            float:right;
+        }
+        
+        .wins, .losses{
+            margin:10px;
+            padding:10px;
+                
+        }
+        #buttonDiv{
+            
+            width:100%;
+            height: 40px;
+        
+        }
+        
+        
+        .counterButtons{
+        
+           padding: 0px;
+            margin-top:0px;
+        }
+        
+        #headerCon{
+            float:left;
+            width:100%;
+            
+            text-align: center;
+            
+            margin-bottom:  25px;
+            
+    
+        }
+        
+        #mainCon{
+            color: red;
+            border: solid;
+        }
+        
+        .cont{
+            float:left;
+            width: 80%;
+            max-width: 800px;
+            clear:  both;
+            margin-left: 100px;
+            margin-top: 0px;
+            
+        }
+        
+        .mainSection{
+            max-width: 700px;
+            border: dashed;
+            height: 170px;
+            color: #05059d;
+            margin-top: 65px;
+            margin-left: 50px;
+            text-align: center;
+            
+    
+        }
+        
+        #startButton{
+            font-family: 'Press Start 2P', cursive;
+            width: 400px;
+            color:white;
+            background: #452a2a;
+            margin-top: 200px;
+            padding: 20px;
+            margin-left: 200px;
+            margin-bottom: 15px;
+
+        }
+        .blankDiv{
+            
+        }
+        #blankButton{
+/*            position: fixed;*/
+            width: 80%;
+            margin-top:60px;
+            margin-left:80px;    
+            text-align: center;
+            font-size: 60px;
+            color: orangered;
+        }
+        
+        #guesses{
+            padding-bottom:10px;
+            margin-top:20px;   
+            margin-left:300px;
+            color: #05059d;
+        }
+        
+        
+        
+    
