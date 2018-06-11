@@ -95,6 +95,8 @@ function clickToStart () {
                     if (losses > 3) {
                             document.write("It's not that hard.... But, you failed.    REFRESH TO PLAY AGAIN");  
                     }
+    
+                        
             
                         else {
                                startGame(); 
@@ -105,6 +107,7 @@ function clickToStart () {
 }
         
 function startGame () { 
+    var allKeysPushed = [];
             playWord = wordArray[Math.floor(Math.random() * wordArray.length)];
             console.log("play word = " + playWord);
             
@@ -155,6 +158,7 @@ function startGame () {
 
                         alert("TRY AGAIN! ");
                         blank.length = 0;
+                        
                         tries = 7;
                         losses++;
 
@@ -169,6 +173,7 @@ function startGame () {
                     {
                         alert("Great Job!")
                         blank.length = 0;
+                        
                         tries = 7;
                         rightAnswer.length = 0;
                         wins++;
