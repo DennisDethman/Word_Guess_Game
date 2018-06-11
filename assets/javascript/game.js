@@ -1,6 +1,4 @@
-        
-        
-        //create an array for words to guess and one to store guesses? keep track of score.
+//create an array for words to guess and one to store guesses? keep track of score.
         
         var wordArray = ["CHIVE", "MARIO", "FANCY", "WEB", "VAIN", "PLOT", "FALSE", "DOG"];
         
@@ -24,7 +22,7 @@
         //figure out how to display number of letters for player to guess --- this must be displayed on screen --- for loop?
         //find out to how to make a click to start/play?  right now you must click a key button to populate the play word --- function/function?
         
-function clickToStart () {
+function clickToStart() {
             //alert("let's go!");
             
             if (wins > 3) {
@@ -34,6 +32,8 @@ function clickToStart () {
                     if (losses > 3) {
                             document.write("It's not that hard.... But, you failed.    REFRESH TO PLAY AGAIN");  
                     }
+    
+                        
             
                         else {
                                startGame(); 
@@ -44,6 +44,7 @@ function clickToStart () {
 }
         
 function startGame () { 
+    var allKeysPushed = [];
             playWord = wordArray[Math.floor(Math.random() * wordArray.length)];
             console.log("play word = " + playWord);
             
@@ -94,6 +95,7 @@ function startGame () {
 
                         alert("TRY AGAIN! ");
                         blank.length = 0;
+                        
                         tries = 7;
                         losses++;
 
@@ -108,6 +110,7 @@ function startGame () {
                     {
                         alert("Great Job!")
                         blank.length = 0;
+                        
                         tries = 7;
                         rightAnswer.length = 0;
                         wins++;
@@ -125,14 +128,13 @@ function startGame () {
   }
 }
 
-           
+startGame();           
             
             
         //get guess from player
         //check to see if player guess is correct  -- keep score to record number of guesses
         //if guess is right, display letter on screen   --- push to array?
         //if guess is wrong, remove number of tries available    ---  push to array?
-    
     
     
     
