@@ -86,7 +86,7 @@
             height: 170px;
             color: #05059d;
             margin-top: 65px;
-            margin-left: 50px;
+            margin-left: 48px;
             text-align: center;
             
     
@@ -97,7 +97,7 @@
             width: 400px;
             color:white;
             background: #452a2a;
-            margin-top: 200px;
+            margin-top: 160px;
             padding: 20px;
             margin-left: 200px;
             margin-bottom: 15px;
@@ -122,6 +122,11 @@
             margin-left:300px;
             color: #05059d;
         }
+
+#wl{
+    margin-top:30px;
+    margin-left:48px;
+}
         
         
         

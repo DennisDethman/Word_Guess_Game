@@ -57,19 +57,11 @@ function startGame () {
         
             
               
-document.onkeyup = function (event) {
-                    
-//                if (playerGuess.indexOf(event.key) === 0) {
-//                    allKeysPushed = event.key;
-            //.getElementById("allText").textContent = allKeysPushed.join(", ");
+            document.onkeyup = function (event) {
+                    playerGuess = event.key.toUpperCase();
 
 
-
-            if (playerGuess.indexOf(event.key) === -1)   {    
-
-
-            playerGuess = event.key.toUpperCase();
-
+            if (blank.indexOf(playerGuess) == -1 && allKeysPushed.indexOf(playerGuess)== -1) { 
                     
                                                                     //from bands... if no match, will return (-1), then continue through "playWord" starting at first letter [0]  huh?
                     if (playWord.indexOf(playerGuess) > -1) {
@@ -89,14 +81,14 @@ document.onkeyup = function (event) {
                     }
                     
                                     else {
-                                        
+                                        allKeysPushed.push(playerGuess);
                                         tries--;
                                         console.log("tries = ", tries);
                                         console.log("player guessed " + playerGuess);
                                     }
-
+                    console.log("all key  "+ allKeysPushed)
                     document.getElementById("gButton").textContent = tries;
-                    
+                    document.getElementById("guessedText").textContent = allKeysPushed;
                     
                     if (tries === 0) {
 
@@ -127,13 +119,11 @@ document.onkeyup = function (event) {
 
                 else {
                    // already used letter
-                    alert("you've already choosen that letter")
+                    //alert("you've already choosen that letter")
                 }
 
   }
-
 }
-//        }
 
            
             
@@ -142,7 +132,6 @@ document.onkeyup = function (event) {
         //check to see if player guess is correct  -- keep score to record number of guesses
         //if guess is right, display letter on screen   --- push to array?
         //if guess is wrong, remove number of tries available    ---  push to array?
-    
     
     
     
